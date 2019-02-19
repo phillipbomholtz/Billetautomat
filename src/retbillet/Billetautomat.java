@@ -50,7 +50,7 @@ public class Billetautomat {
 	/** Udskriv en billet. */
 	public void udskrivBillet() {
 		antalBilletterSolgt = antalBilletterSolgt + 1;
-		balance = 0;             // Nulstil balance
+		balance = balance - pris;             // trækker fra balance
 
 		System.out.println("##########B##T##########");
 		System.out.println("# Borgen Trafikselskab #");

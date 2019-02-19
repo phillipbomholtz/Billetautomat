@@ -14,7 +14,7 @@ public class Retbillet {
 		int pris = automat.getBilletpris();
 		System.out.println("Billetprisen er: " + pris + " kroner");
 		System.out.println("Kunden putter 24 kroner i automaten");
-		automat.indsætPenge(24);
+		automat.indsætPenge(30);
 		System.out.println("Balancen er nu på " + automat.getBalance() + " kroner");
 		automat.udskrivBillet();
 		System.out.println("Balancen er nu på " + automat.getBalance() + " kroner");
