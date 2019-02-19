@@ -21,7 +21,7 @@ public class Billetautomat {
 	 * @param startbalance mængden af penge automaten allerede indeholder
 	 */
 	public Billetautomat(int billetpris, int startbalance) {
-		int pris = billetpris;
+	        pris = billetpris;
 		balance = startbalance;
 	}
 
