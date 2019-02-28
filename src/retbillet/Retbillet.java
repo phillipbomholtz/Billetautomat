@@ -19,10 +19,10 @@ public class Retbillet {
                 Calendar calender = Calendar.getInstance();
                 SimpleDateFormat date = new SimpleDateFormat("HH:mm:ss");
                 int ch = 0;
-                
+                System.out.println("velkommen til billetaoutomaten. hvad er det du vil?");
                 while(ch != 4){
-                System.out.println("velkommen til billetaoutomaten. hvad er det du vil? (indtast tal!)");
-                System.out.println();
+                
+                System.out.println("indtast tal for den handlig du ønsker at fortage dig");
                 System.out.println("1: købe en billet");
                 System.out.println("2: logge ind som admin");
                 System.out.println("3: udskrive log over køb");
@@ -47,7 +47,11 @@ public class Retbillet {
                         log.filewrite("der blev udskrevet " +count+ " billete(r)");
                         break;
                     case 2:
-                        bob.login(t.next(), t.next());
+                        System.out.println("enter brugernavn: ");
+                        String s1 = t.next();
+                        System.out.println("enter kode: ");
+                        String s2 = t.next();
+                        bob.login(s1, s2);
                         break;
                     case 3:
                         if(bob.loginstatus()){
