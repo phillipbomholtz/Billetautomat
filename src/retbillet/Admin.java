@@ -22,7 +22,7 @@ public class Admin {
         name = a;
         code = b;
     }
-    public boolean login(String a, String b){
+    public void login(String a, String b){
         if(a.equals(name) && b.equals(code)){
             System.out.println("welcome " + name);
             x = true;
@@ -30,6 +30,8 @@ public class Admin {
             System.out.println("YOU ARE NOT AN ADMIN! ;:( ");
             x = false;
         }
+    }
+    public boolean loginstatus(){
         return x;
     }
 }

@@ -16,17 +16,19 @@ public class Logger  {
     private String filename;
     private String path;
    
-    
+    // basic constructer that assigns filename and path
   public Logger() throws IOException{
       filename = "BilletLog.txt";
       path = "c:/temp/";
   }
   
+  //custom path and filename
   public Logger(String a,String b)throws IOException{
       filename = a;
       path = b;
   }
  
+  //write to file
    public void filewrite(String a)throws IOException{
        BufferedWriter log = new BufferedWriter(new FileWriter(path+filename));
        log.write(a);
