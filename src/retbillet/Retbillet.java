@@ -22,6 +22,7 @@ public class Retbillet {
                 System.out.println("velkommen til billetaoutomaten. hvad er det du vil?");
                 while(ch != 4){
                 
+                System.out.println();
                 System.out.println("indtast tal for den handlig du ønsker at fortage dig");
                 System.out.println("1: købe en billet");
                 System.out.println("2: logge ind som admin");
@@ -59,6 +60,10 @@ public class Retbillet {
                         }else{
                             System.out.println("erh. u no admin!");
                         }
+                    case 4:
+                        System.out.println("hav en god rejse, MEN KUN HVIS DU KOEBTE NOGET! ;:(");
+                    default:
+                        System.out.println("ja...erh... det er en god ide at indtaste en rigtig mulighed");
                 }
                 } 
     }
