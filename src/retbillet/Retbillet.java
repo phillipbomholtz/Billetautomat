@@ -20,6 +20,7 @@ public class Retbillet {
 		automat.udskrivBillet();
 		System.out.println("Balancen er nu på " + automat.getBalance() + " kroner");
                 Logger log = new Logger();
+                log.filewrite("hello world");
     }
     
 }

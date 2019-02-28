@@ -19,17 +19,17 @@ public class Logger  {
     
   public Logger() throws IOException{
       filename = "BilletLog.txt";
-      path = "C:/temp/";
+      path = "c:/temp/";
   }
   
   public Logger(String a,String b)throws IOException{
       filename = a;
       path = b;
   }
-  
-   private BufferedWriter log = new BufferedWriter(new FileWriter(path+filename));
-  
+ 
    public void filewrite(String a)throws IOException{
+       BufferedWriter log = new BufferedWriter(new FileWriter(path+filename));
        log.write(a);
+       log.close();
    }
 }
