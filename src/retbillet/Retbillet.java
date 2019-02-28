@@ -18,14 +18,18 @@ public class Retbillet {
 		Scanner t = new Scanner(System.in);
                 Calendar calender = Calendar.getInstance();
                 SimpleDateFormat date = new SimpleDateFormat("HH:mm:ss");
-        
+                int ch = 0;
+                
+                while(ch != 4){
                 System.out.println("velkommen til billetaoutomaten. hvad er det du vil? (indtast tal!)");
                 System.out.println();
                 System.out.println("1: købe en billet");
                 System.out.println("2: logge ind som admin");
                 System.out.println("3: udskrive log over køb");
+                System.out.println("4: exit");
                 
-                int ch = t.nextInt();
+                
+                ch = t.nextInt();
                 switch(ch){
                     case 1:
                         System.out.println("prisen for en billet er "+automat.getBilletpris()+".- indsæt penge:");
@@ -40,17 +44,19 @@ public class Retbillet {
                             automat.udskrivBillet();
                             count++;
                         }
-                        log.filewrite("der blev udskrevet " + count+ "billeter");
+                        log.filewrite("der blev udskrevet " +count+ " billete(r)");
                         break;
                     case 2:
                         bob.login(t.next(), t.next());
                         break;
                     case 3:
                         if(bob.loginstatus()){
-                            
+                            log.readfile();
+                        }else{
+                            System.out.println("erh. u no admin!");
                         }
                 }
-                
+                } 
     }
     
 }

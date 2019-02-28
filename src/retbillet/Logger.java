@@ -7,6 +7,8 @@ package retbillet;
 import java.io.FileWriter; // JAVA says this is conflicting...why?
 import java.io.IOException;
 import java.io.BufferedWriter;
+import java.io.BufferedReader;
+import java.io.FileReader;
 
 /**
  *
@@ -33,5 +35,13 @@ public class Logger  {
        BufferedWriter log = new BufferedWriter(new FileWriter(path+filename));
        log.write(a);
        log.close();
+   }
+   public void readfile()throws IOException{
+       BufferedReader lag = new BufferedReader(new FileReader(path+filename));
+       String line = lag.readLine();
+       while(line != null){
+           System.out.println(line);
+           line = lag.readLine();
+       }
    }
 }
