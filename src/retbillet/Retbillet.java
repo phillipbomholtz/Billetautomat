@@ -1,12 +1,13 @@
 
 package retbillet;
 
+import java.io.IOException;
 
 
 public class Retbillet {
 
    
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException{
 		Billetautomat automat = new Billetautomat(24);
 		System.out.println("Installatøren har installeret en ny billetautomat");
 		System.out.println();
@@ -18,6 +19,7 @@ public class Retbillet {
 		System.out.println("Balancen er nu på " + automat.getBalance() + " kroner");
 		automat.udskrivBillet();
 		System.out.println("Balancen er nu på " + automat.getBalance() + " kroner");
+                Logger log = new Logger();
     }
     
 }
