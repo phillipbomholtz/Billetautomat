@@ -1,14 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package retbillet;
-import java.io.FileWriter; // JAVA says this is conflicting...why?
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.BufferedWriter;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.File;
 
 /**
  *
@@ -22,18 +19,21 @@ public class Logger  {
   public Logger() throws IOException{
       filename = "BilletLog.txt";
       path = "c:/temp/";
+      File temp = new File(path+filename);
+      
   }
   
   //custom path and filename
   public Logger(String a,String b)throws IOException{
       filename = a;
       path = b;
+      File temp = new File(path+filename);
   }
  
   //write to file
    public void filewrite(String a)throws IOException{
-       BufferedWriter log = new BufferedWriter(new FileWriter(path+filename));
-       log.write(a);
+       BufferedWriter log = new BufferedWriter(new FileWriter(path+filename,true));
+       log.append(a+"\n");
        log.close();
    }
    public void readfile()throws IOException{
