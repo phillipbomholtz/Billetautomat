@@ -14,14 +14,15 @@ import java.io.File;
 public class Fileuser  {
     private String filename;
     private String path;
-    private String[] filewritebuffer = new String[100];
+    private int buffersize = 100;
+    private String[] filewritebuffer = new String[buffersize];
     private int buffercounter = 0;
    
     // basic constructer that assigns filename and path
   public Fileuser() throws IOException{
       filename = "BilletLog.txt";
       path = "c:/temp/";
-      File temp = new File(path+filename);
+      File temp = new File(path+filename); //makes sure file exist
       
   }
   
@@ -29,13 +30,18 @@ public class Fileuser  {
   public Fileuser(String a,String b)throws IOException{
       filename = a;
       path = b;
-      File temp = new File(path+filename);
+      File temp = new File(path+filename); // makes sure file exist
   }
   public void addToFile(String s)throws IOException{
-      if(buffercounter < 100){
+      boolean action = false;
+      while(action){
+      if(buffercounter < buffersize){
           filewritebuffer[buffercounter] = s;
+          buffercounter++;
+          action = true;
       }else{
           filewrite();
+      }
       }
   }
   //write to file
