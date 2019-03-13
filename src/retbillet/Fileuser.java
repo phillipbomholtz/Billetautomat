@@ -14,9 +14,7 @@ import java.io.File;
 public class Fileuser  {
     private String filename;
     private String path;
-    private int buffersize = 100;
-    private String[] filewritebuffer = new String[buffersize];
-    private int buffercounter = 0;
+   
    
     // basic constructer that assigns filename and path
   public Fileuser() throws IOException{
@@ -32,33 +30,22 @@ public class Fileuser  {
       path = b;
       File temp = new File(path+filename); // makes sure file exist
   }
-  public void addToFile(String s)throws IOException{
-      boolean action = false;
-      while(action){
-      if(buffercounter < buffersize){
-          filewritebuffer[buffercounter] = s;
-          buffercounter++;
-          action = true;
-      }else{
-          filewrite();
-      }
-      }
-  }
+
   //write to file
-   public void filewrite()throws IOException{
+   public void filewrite(String s)throws IOException{
        BufferedWriter log = new BufferedWriter(new FileWriter(path+filename,true));
-       for(int i = 0; i <= buffercounter; i++){
-       log.append(filewritebuffer[i]+"\n");
-       }
-       buffercounter = 0;
+       log.append(s+"\n");
        log.close();
    }
-   public void readfile()throws IOException{
+   public boolean readfile()throws IOException{
        BufferedReader lag = new BufferedReader(new FileReader(path+filename));
+       boolean ifempty = true;
        String line = lag.readLine();
        while(line != null){
            System.out.println(line);
            line = lag.readLine();
+           ifempty = false;
        }
+       return ifempty;
    }
 }
