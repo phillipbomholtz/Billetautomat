@@ -13,7 +13,7 @@ public class Retbillet {
     public static void main(String[] args) throws IOException{
                 
 		Billetautomat automat = new Billetautomat(24);  //make new billetaoutomat with ticket price of 24 kr
-                Logger log = new Logger();                      //make a new logger with default pathing
+                Fileuser log = new Fileuser();                      //make a new logger with default pathing
                 Admin bob = new Admin("bob","Gumpen221");       //make an admin
 		Scanner t = new Scanner(System.in);             //just a scanner for keyboard input
                 Calendar calender = Calendar.getInstance();     //object for tracking time
