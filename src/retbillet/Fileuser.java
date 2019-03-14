@@ -37,9 +37,8 @@ public class Fileuser  {
   
   //custom path and filename
   public Fileuser(String a,String b){
-      filename = a;
-      path = b;
-      System.out.println("SKEDE");
+      filename = b;
+      path = a;
       try{
       File temp = new File(path+filename); //makes sure file exist
       if(temp.createNewFile()){
@@ -79,5 +78,8 @@ public class Fileuser  {
        System.out.println("ERROR: file not to be accesed! behaves as if empty empty");
        return true;
        }
+   }
+   public String fileSearch(String s){
+       
    }
 }

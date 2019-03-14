@@ -15,7 +15,8 @@ public class Testfileuser {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Fileuser m = new Fileuser("c:/temp/","Test.txt");
+        System.out.println("expectet output: (Found file: c:/temp/test.txt) or (Success in creating file)");
+        Fileuser m = new Fileuser("c:/temp/","test.txt");
         
     }
     
