@@ -102,6 +102,9 @@ public class Fileuser  {
    }
    
    public int userBalance(){
-       return 0;
+       StringTokenizer tok = new StringTokenizer(searchstring,"(,)");
+       tok.nextToken(); tok.nextToken();
+       
+       return Integer.parseInt(tok.nextToken());
    }
 }

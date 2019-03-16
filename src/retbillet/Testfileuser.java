@@ -33,9 +33,17 @@ public class Testfileuser {
         if(usertest.fileSearchUser("Dorte", "1234") != 1) errors++; //search with valid ID and password
         if(usertest.fileSearchUser("Hans", "1234") != -1) errors++; //search with invalid ID but valid password
         if(usertest.fileSearchUser("Dorte", "2233") != 0) errors++; //search with valid ID but invalid password
-        System.out.println("there where "+errors+" errors");
         
         //test search with balance data
+        Fileuser usertest2 = new Fileuser("c:/temp/","usertest2.txt");
+        usertest2.filewrite("Dorte,1234,100");
+        if(usertest2.fileSearchUser("Dorte", "1234") != 1) {
+            if(usertest2.userBalance() != 100) errors++;
+        }
+                
+        System.out.println("there where "+errors+" errors");
+        
+
     }
     
 }
