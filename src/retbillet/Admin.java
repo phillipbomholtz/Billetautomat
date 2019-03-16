@@ -14,26 +14,40 @@ public class Admin {
     
     public Admin()throws IOException{   
         if(!adminusers.readfile()){
-            System.out.println("this looks like the first time im being installed!");
+            System.out.println("Ingen kendte admins! Der skal laves en admin nu:");
             NewAdmin();
         }
     }
     public void NewAdmin()throws IOException{
         Scanner tas = new Scanner(System.in);
-        System.out.println("please enter username of new admin below:");
+        System.out.println("Indsaet brugernavn:");
         name = tas.next();
-        System.out.println("thank you! now please enter a password for this account");
+        System.out.println("Tak! Indsæt password for denne admin acount");
         code = tas.next();
         adminusers.filewrite(name+","+code);
     }
-    public void login(String a, String b){
-        if(a.equals(name) && b.equals(code)){
-            System.out.println("welcome " + name);
-            x = true;
-        }else{
-            System.out.println("YOU ARE NOT AN ADMIN! ;:( ");
-            x = false;
+    public void login()throws IOException{
+        Scanner tas = new Scanner(System.in);
+        System.out.println("Brugernavn:");
+        String a = tas.next();
+         System.out.println("Password:");
+        String b = tas.next();
+        
+        switch(adminusers.fileSearchUser(a,b)){
+            case 1:
+               System.out.println("Velkommen " + name);
+               x = true;  
+               break;
+            case 0:
+               System.out.println("Bruger fundet, men forkert password");
+               x = false;
+                break;
+            case -1:
+               System.out.println("Ukendt bruger");
+                x = false;
+                break;
         }
+        
     }
     public boolean loginstatus(){
         return x;
