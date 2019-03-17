@@ -40,7 +40,8 @@ public class Testfileuser {
         if(usertest2.fileSearchUser("Dorte", "1234") != 1) {
             if(usertest2.userBalance() != 100) errors++;
         }
-                
+         Fileuser g = new Fileuser();
+         
         System.out.println("there where "+errors+" errors");
         
 

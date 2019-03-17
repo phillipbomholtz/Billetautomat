@@ -107,12 +107,53 @@ public class Fileuser  {
        
        return Integer.parseInt(tok.nextToken());
    }
-   public void LogDate(String s)throws IOException{
+   public String LogDate(String s)throws IOException{
        BufferedReader lag = new BufferedReader(new FileReader(path+filename));
+       StringBuilder b = new StringBuilder();
        String temp = lag.readLine();
        while(temp != null){
            StringTokenizer tok = new StringTokenizer(temp,"(,)");
+           String temp2 = tok.nextToken();
+           if(temp2.equals(s)){
+               b.append(temp2+" "+tok.nextToken()+" ");
+               String temp3 = Hdecode(Integer.parseInt(tok.nextToken()));
+               if(temp3.equals("Der blev koebt en ")){
+                  b.append(temp3+Bdecode(Integer.parseInt(tok.nextToken())));
+               }else{
+                   b.append(temp3+tok.nextToken());
+               }
+           }
        }
-       
+       if(b.toString().equals("")){
+           return "Fandt ingen data for dato!";
+       }
+       return b.toString();
+   }
+   
+   public String Hdecode(int i){
+       switch(i){
+           case 1:
+               return "Beloeb indsat(kr): ";
+           case 2:
+               return "Der blev koebt en ";
+           case 3:
+               return "beloeb returneret(kr): ";
+               
+       }
+       return "";
+   }
+   public String Bdecode(int i){
+       switch(i){
+           case 1:
+               return "alm billet";
+           case 2:
+               return "god billet";
+           case 3:
+               return "super billet";
+           case 4:
+               return "ultra billet";
+               
+       }
+       return "";
    }
 }
