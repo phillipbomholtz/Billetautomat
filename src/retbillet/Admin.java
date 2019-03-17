@@ -1,7 +1,6 @@
 
 package retbillet;
 import java.io.IOException;
-import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 /**
@@ -9,7 +8,7 @@ import javax.swing.JOptionPane;
  * @author phill
  */
 public class Admin {
-    private String name;
+    protected String name;
     private String code;
     private Fileuser adminusers = new Fileuser("c:/temp/","Admins.txt");
     private boolean x = false;

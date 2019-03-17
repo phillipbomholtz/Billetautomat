@@ -41,7 +41,8 @@ public class Testfileuser {
             if(usertest2.userBalance() != 100) errors++;
         }
          Fileuser g = new Fileuser();
-         String b = g.LogDate("10-10-10");
+         g.readfile();
+         String b = g.LogDate("2019-03-17");
          System.out.println("correct output: 10-10-10 20:12:10 beloeb indsat(kr): 200");
          System.out.println(b);
          

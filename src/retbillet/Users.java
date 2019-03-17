@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  * @author phill
  */
 public class Users {
-    private String name;
+    protected String name;
     private String code;
     private int balance;
     private Fileuser User = new Fileuser("c:/temp/","Users.txt");

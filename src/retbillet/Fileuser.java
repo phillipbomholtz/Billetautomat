@@ -17,7 +17,7 @@ public class Fileuser  {
     private String path;
     private boolean filecheck = true;
     private String searchstring;
-    private String file;
+
    
     // basic constructer that assigns filename and path
   public Fileuser(){
@@ -72,6 +72,24 @@ public class Fileuser  {
        boolean ifempty = true;
        String line = lag.readLine();
        while(line != null){
+           System.out.println(line);
+           line = lag.readLine();
+           ifempty = false;
+       }
+       return ifempty;   
+       }else{
+       System.out.println("ERROR: file not to be accesed! behaves as if empty");
+       return true;
+       }
+   }
+   public String readfilelog()throws IOException{
+        BufferedReader lag = new BufferedReader(new FileReader(path+filename));
+        StringBuilder b = new StringBuilder();
+       boolean ifempty = true;
+       String line = lag.readLine();
+
+       while(line != null){
+           if(!line.equals("")){
            StringTokenizer tok = new StringTokenizer(line,"(,)");
            b.append(tok.nextToken()+" "+tok.nextToken()+" ");
            int d = Integer.parseInt(tok.nextToken());
@@ -84,15 +102,11 @@ public class Fileuser  {
                    b.append(tok.nextToken());
                }
               b.append("\n");
+           }
            line = lag.readLine();
            ifempty = false;
        }
-       file = b.toString();
-       return ifempty;   
-       }else{
-       System.out.println("ERROR: file not to be accesed! behaves as if empty");
-       return true;
-       }
+       return b.toString();
    }
    public int fileSearchUser(String USERNAME, String PASSWORD)throws IOException{
       BufferedReader search = new BufferedReader(new FileReader(path+filename));
@@ -202,8 +216,5 @@ public class Fileuser  {
                
        }
        return "";
-   }
-   public String getFileLoad(){
-       return file;
    }
 }

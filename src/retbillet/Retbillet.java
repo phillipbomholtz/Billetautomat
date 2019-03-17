@@ -2,7 +2,6 @@
 package retbillet;
 
 import java.io.IOException;
-import java.util.Scanner;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import javax.swing.JOptionPane;
@@ -33,7 +32,7 @@ public class Retbillet {
              case 1:
                  User.login();
                  if(User.loginstatus()){
-                     bruger(User.getBalance());
+                     bruger(User.name,User.getBalance());
                  }
                  User.logOut();
                  break;
@@ -43,7 +42,7 @@ public class Retbillet {
              case 3:
                  Montoer.login();
                  if(Montoer.loginstatus()){
-                     admin();
+                     admin(Montoer.name);
                  }
                  Montoer.logOut();
                  break;
@@ -77,13 +76,13 @@ public class Retbillet {
         }
         }
     }
-     public static void bruger(int balance)throws IOException{
+     public static void bruger(String name,int balance)throws IOException{
            Billetautomat userAuto = new Billetautomat(pris,balance);
         Fileuser log = new Fileuser();
         
         boolean EXIT = false;
         while(!EXIT){
-        switch(menu.gaestmenu()){
+        switch(menu.usermenu(name)){
             case 0:
                int i = menu.indsaetpenge(userAuto.getBalance());
                userAuto.indsaetPenge(i);
@@ -95,13 +94,29 @@ public class Retbillet {
                 log.filewrite(x.now()+","+y.getHour()+":"+y.getMinute()+":"+y.getSecond()+","+"2,"+u+",\n");
                 break;
             case 2:
+                 int q = menu.indsaetpenge(userAuto.getBalance())*(-1);
+                 userAuto.indsaetPenge(q);
+                 log.filewrite(x.now()+","+y.getHour()+":"+y.getMinute()+":"+y.getSecond()+","+"3,"+q+",\n");
+                break;
+            case 3:
                 EXIT = true;
-                log.filewrite(x.now()+","+y.getHour()+":"+y.getMinute()+":"+y.getSecond()+","+"3,"+userAuto.getBalance()+",\n");
                 break;
         }
         }
     }
-     public static void admin(){
-         
+     public static void admin(String name)throws IOException{
+         Fileuser log = new Fileuser();
+         switch(menu.Adminmenu(name)){
+             case 0:
+                     JOptionPane.showMessageDialog(null, log.readfilelog());
+                     break;
+             case 1:
+                     String s = JOptionPane.showInputDialog("pris for alm. billet. \nPriser for oevre "
+                     + "billeter er konstant stigning af standard (god + 2, super + 5, ultra + 10) ");
+                     pris = Integer.parseInt(s);
+                     break;
+             case 2:
+                 
+         }
      }
 }
