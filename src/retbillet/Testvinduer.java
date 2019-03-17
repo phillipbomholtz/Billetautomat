@@ -17,6 +17,11 @@ public class Testvinduer {
     public static void main(String[] args) {
         Vinduer f = new Vinduer();
         f.Startmenu();
+        f.Adminmenu("sven");
+        f.gaestmenu();
+        f.indsaetpenge();
+        f.usermenu("bob");
+        f.koebbillet(20);
     }
     
 }
