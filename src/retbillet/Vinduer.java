@@ -14,7 +14,7 @@ public class Vinduer {
         
     }
     public int Startmenu(){
-        String[] options = {"Gaest","Login som bruger","Lav en bruger","Admin"};
+        String[] options = {"Gaest","Login som bruger","Lav en bruger","Admin","close"};
         int x = JOptionPane.showOptionDialog(null, "Velkommen til billetautomaten!",
                 "vaelg en handling:",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
@@ -27,13 +27,13 @@ public class Vinduer {
                 JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
         return x;
     }
-    public int indsaetpenge(){
-        String s = JOptionPane.showInputDialog("Hvor mange penge vil du saette ind?");
+    public int indsaetpenge(int balance){
+        String s = JOptionPane.showInputDialog("Hvor mange penge vil du saette ind? Nuvaerende balance: "+balance);
         return Integer.parseInt(s);
     }
-    public int koebbillet(int pris){
+    public int koebbillet(int pris,int balance){
          String[] options = {"alm. billet: "+pris+" kr","god billet "+(pris+2)+" kr","super billet "+(pris+5)+" kr","ultra billet "+(pris+10)+" kr","tilbage"};
-        int x = JOptionPane.showOptionDialog(null, "hvad billet kunne du taenke dig",
+        int x = JOptionPane.showOptionDialog(null, "hvad billet kunne du taenke dig? balance: "+balance,
                 "vaelg en handling:",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
         return x;
@@ -51,5 +51,16 @@ public class Vinduer {
                 "vaelg en handling:",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
         return x; 
+    }
+    public String Admindato(){
+        String s = JOptionPane.showInputDialog("For hvad dato? (format: yyyy-mm-dd");
+        return s; 
+    }
+    public int AdminHandl(){
+         String[] options = {"Indsaet","BilletPrint","Retur","tilbage"};
+        int x = JOptionPane.showOptionDialog(null, "hvad handling ledes der efter? (virker ikke)",
+                "vaelg en handling:",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+        return x+1; 
     }
 }

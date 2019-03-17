@@ -112,24 +112,58 @@ public class Fileuser  {
        StringBuilder b = new StringBuilder();
        String temp = lag.readLine();
        while(temp != null){
-           StringTokenizer tok = new StringTokenizer(temp,"(,)");
-           String temp2 = tok.nextToken();
+           StringTokenizer g = new StringTokenizer(temp,"(,)");
+           String temp2 = g.nextToken();
            if(temp2.equals(s)){
-               b.append(temp2+" "+tok.nextToken()+" ");
-               String temp3 = Hdecode(Integer.parseInt(tok.nextToken()));
-               if(temp3.equals("Der blev koebt en ")){
-                  b.append(temp3+Bdecode(Integer.parseInt(tok.nextToken())));
+               b.append(temp2+" "+g.nextToken()+" ");
+               int d = Integer.parseInt(g.nextToken());
+               String temp3 = Hdecode(d);
+               b.append(temp3);
+               if(d == 2){
+                   String temp4 = Bdecode(Integer.parseInt(g.nextToken()));
+                   b.append(temp4);
                }else{
-                   b.append(temp3+tok.nextToken());
+                   b.append(g.nextToken());
                }
+              b.append("\n");
            }
+           temp = lag.readLine();
        }
-       if(b.toString().equals("")){
-           return "Fandt ingen data for dato!";
+       if(!b.toString().equals("")){
+           return b.toString();
+       }else{
+           return "Ingen log for denne dato";
        }
-       return b.toString();
    }
-   
+   public String LogHandL(int i)throws IOException{
+        BufferedReader lag = new BufferedReader(new FileReader(path+filename));
+        StringBuilder b = new StringBuilder();
+        String temp = lag.readLine();
+        while(temp != null){
+            StringTokenizer g = new StringTokenizer(temp,"(,)");
+            g.nextToken();g.nextToken();
+            if(Integer.parseInt(g.nextToken())==i){
+                 StringTokenizer o = new StringTokenizer(temp,"(,)");
+                 b.append(o.nextToken()+" "+o.nextToken()+" ");
+                 int d = Integer.parseInt(o.nextToken());
+                 String temp2 = Hdecode(d);
+                 b.append(temp2);
+                if(d == 2){
+                   String temp3 = Bdecode(Integer.parseInt(o.nextToken()));
+                   b.append(temp3);
+               }else{
+                   b.append(o.nextToken());
+               }
+              b.append("\n");
+            }
+        }
+        if(!b.toString().equals("")){
+           return b.toString();
+       }else{
+           return "Ingen log for denne handling";
+       }
+        
+   }
    public String Hdecode(int i){
        switch(i){
            case 1:

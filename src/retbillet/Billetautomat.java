@@ -44,7 +44,7 @@ public class Billetautomat {
 	/**
 	 * Modtag nogle penge (i kroner) fra en kunde.
 	 */
-	public void indsætPenge(int beløb) {
+	public void indsaetPenge(int beløb) {
 		balance = balance + beløb;
 	}
 

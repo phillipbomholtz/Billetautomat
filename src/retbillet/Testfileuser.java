@@ -41,7 +41,21 @@ public class Testfileuser {
             if(usertest2.userBalance() != 100) errors++;
         }
          Fileuser g = new Fileuser();
+         String b = g.LogDate("10-10-10");
+         System.out.println("correct output: 10-10-10 20:12:10 beloeb indsat(kr): 200");
+         System.out.println(b);
          
+         String c = g.LogDate("10-10-11");
+         System.out.println("correct output: Ingen Log for dato");
+         System.out.println(c);
+         
+        /* String k = g.LogHandL(1);
+         System.out.println("correct output: 10-10-10 20:12:10 beloeb indsat(kr): 200");
+         System.out.println(k);
+         
+          String p = g.LogHandL(2);
+         System.out.println("correct output: 10-10-10 20:12:10 der blev købt en alm. billet");
+         System.out.println(p);*/
         System.out.println("there where "+errors+" errors");
         
 
