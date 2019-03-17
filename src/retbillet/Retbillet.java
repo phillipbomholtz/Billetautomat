@@ -106,6 +106,8 @@ public class Retbillet {
     }
      public static void admin(String name)throws IOException{
          Fileuser log = new Fileuser();
+         boolean EXIT = false;
+         while(!EXIT){
          switch(menu.Adminmenu(name)){
              case 0:
                      JOptionPane.showMessageDialog(null, log.readfilelog());
@@ -116,7 +118,10 @@ public class Retbillet {
                      pris = Integer.parseInt(s);
                      break;
              case 2:
-                 
+                      String v = JOptionPane.showInputDialog("For hvilken dato? Format: yyyy-mm-dd");
+                      JOptionPane.showMessageDialog(null, log.LogDate(v));
+                      break;
+         }
          }
      }
 }

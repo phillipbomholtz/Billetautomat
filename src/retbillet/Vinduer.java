@@ -46,7 +46,7 @@ public class Vinduer {
         return x; 
     }
     public int Adminmenu(String navn){
-         String[] options = {"Print log","indstil pris","Log efter handling","Log efter beloeb","Log efter Dato","Log ud"};
+         String[] options = {"Print log","indstil pris","Log efter Dato","Log ud"};
         int x = JOptionPane.showOptionDialog(null, "Hej "+navn,
                 "vaelg en handling:",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
