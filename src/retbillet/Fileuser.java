@@ -139,6 +139,8 @@ public class Fileuser  {
        StringBuilder b = new StringBuilder();
        String temp = lag.readLine();
        while(temp != null){
+           
+           if(!temp.equals("")){
            StringTokenizer g = new StringTokenizer(temp,"(,)");
            String temp2 = g.nextToken();
            if(temp2.equals(s)){
@@ -153,6 +155,7 @@ public class Fileuser  {
                    b.append(g.nextToken());
                }
               b.append("\n");
+           }
            }
            temp = lag.readLine();
        }
