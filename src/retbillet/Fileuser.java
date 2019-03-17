@@ -107,4 +107,12 @@ public class Fileuser  {
        
        return Integer.parseInt(tok.nextToken());
    }
+   public void LogDate(String s)throws IOException{
+       BufferedReader lag = new BufferedReader(new FileReader(path+filename));
+       String temp = lag.readLine();
+       while(temp != null){
+           StringTokenizer tok = new StringTokenizer(temp,"(,)");
+       }
+       
+   }
 }
