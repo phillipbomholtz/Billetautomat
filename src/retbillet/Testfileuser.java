@@ -49,13 +49,9 @@ public class Testfileuser {
          System.out.println("correct output: Ingen Log for dato");
          System.out.println(c);
          
-        /* String k = g.LogHandL(1);
-         System.out.println("correct output: 10-10-10 20:12:10 beloeb indsat(kr): 200");
-         System.out.println(k);
+         String h = g.LogHandL(1);
+         System.out.println(c);
          
-          String p = g.LogHandL(2);
-         System.out.println("correct output: 10-10-10 20:12:10 der blev købt en alm. billet");
-         System.out.println(p);*/
         System.out.println("there where "+errors+" errors");
         
 

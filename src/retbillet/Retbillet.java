@@ -121,7 +121,12 @@ public class Retbillet {
                       String v = JOptionPane.showInputDialog("For hvilken dato? Format: yyyy-mm-dd");
                       JOptionPane.showMessageDialog(null, log.LogDate(v));
                       break;
+
+             case 3:
+                 EXIT = true;
+                 break;
          }
          }
      }
+ 
 }

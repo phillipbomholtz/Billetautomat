@@ -170,6 +170,7 @@ public class Fileuser  {
         StringBuilder b = new StringBuilder();
         String temp = lag.readLine();
         while(temp != null){
+            if(!temp.equals("")){
             StringTokenizer g = new StringTokenizer(temp,"(,)");
             g.nextToken();g.nextToken();
             if(Integer.parseInt(g.nextToken())==i){
@@ -185,6 +186,7 @@ public class Fileuser  {
                    b.append(o.nextToken());
                }
               b.append("\n");
+            }
             }
         }
         if(!b.toString().equals("")){
