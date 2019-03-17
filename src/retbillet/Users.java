@@ -25,7 +25,6 @@ public class Users {
         name = JOptionPane.showInputDialog("Indtast brugernavn");
         code = JOptionPane.showInputDialog("Indtast password");
         User.filewrite(name+","+code+","+"0,");
-        x = true;
     }
     public void login()throws IOException{
         String a = JOptionPane.showInputDialog("Indtast brugernavn");
