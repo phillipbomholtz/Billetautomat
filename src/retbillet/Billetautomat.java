@@ -1,96 +1,109 @@
 package retbillet;
 /**
- * Model af en simpel billetautomat til enkeltbilletter med en fast pris.
+ * auther:       Jacop Nordfalk
+ * Modified by:  Phillip Bomholtz
+ * created:      unknown
+ * Last updated: 17-03-2019
  */
 public class Billetautomat {
 	private int almpris;    // Price of a normal ticket
         private int godpris;    // Price of a good ticket
         private int superpris;    // Price of a super ticket
         private int ultrapris;    // Price of an ultra ticket
-	private int balance; // Hvor mange penge kunden p.t. har puttet i automaten
-	private int antalBilletterSolgt; // Antal billetter automaten i alt har solgt
+	private int balance; // user curent balance
+	private int antalBilletterSolgt; // amount sold
 
 	/**
-	 * Opret en billetautomat, der sælger billetter til en given billetpris.
-	 * @param billetpris skal være større end nul (p.t. bliver det ikke tjekket)
+	 * construct the machine with price
 	 */
 	public Billetautomat(int billetpris) {
+            //set prices
+            if(billetpris > 0){
 		almpris = billetpris;
                 godpris = billetpris +2;
                 superpris = billetpris + 5;
                 ultrapris= billetpris + 10;
+            }else{
+                System.out.println("pris kan ikke vaere lavere end 0 kr");
+                int i = 10;
+                almpris = i;
+                godpris = i +2;
+                superpris = i + 5;
+                ultrapris= i + 10;
+            }
 	}
 
-	/**
-	 * Opret en billetautomat, der sælger billetter til en given billetpris
-	 * @param billetpris skal være større end nul (p.t. bliver det ikke tjekket)
-	 * @param startbalance mængden af penge automaten allerede indeholder
-	 */
+
+	 //construckt machine with start balance
 	public Billetautomat(int billetpris, int startbalance) {
-	        almpris = billetpris;
+	       //set prices
+            if(billetpris > 0){
+		almpris = billetpris;
                 godpris = billetpris +2;
                 superpris = billetpris + 5;
                 ultrapris= billetpris + 10;
+            }else{
+                System.out.println("pris kan ikke vaere lavere end 0 kr");
+                int i = 10;
+                almpris = i;
+                godpris = i +2;
+                superpris = i + 5;
+                ultrapris= i + 10;
+            }
 		balance = startbalance;
 	}
 
-	/**
-	 * Giver prisen for en billet.
-	 */
+	//unused
 	public int getBilletpris() {
 		return almpris;
 	}
 
-	/**
-	 * Modtag nogle penge (i kroner) fra en kunde.
-	 */
+	//add to balance
 	public void indsaetPenge(int beløb) {
 		balance = balance + beløb;
 	}
 
-	/**
-	 * Giver balancen (beløbet maskinen har modtaget til den næste billet).
-	 */
+       //current balance
 	public int getBalance() {
 		return balance;
 	}
 
-	/** Udskriv en billet. */
+	//write ticket if sufficient funds. recives wanted ticket type
 	public void udskrivBillet(int g) {
             switch(g){
                 case 0:
                     if(balance > almpris){
                     almbillet();
-                    balance = balance - almpris;             // trækker fra balance
+                    balance = balance - almpris;             // subtract from balance
                     antalBilletterSolgt = antalBilletterSolgt + 1;
                     }else System.out.println("ikke nok penge");
                     break;
                 case 1:
                     if(balance > godpris){
                     godbillet();
-                    balance = balance - godpris;             // trækker fra balance
+                    balance = balance - godpris;             // subtract from balance
                     antalBilletterSolgt = antalBilletterSolgt + 1;
                     }else System.out.println("ikke nok penge");
                     break;
                 case 2:
                     if(balance > superpris){
                     superbillet();
-                    balance = balance - superpris;             // trækker fra balance
+                    balance = balance - superpris;             // subtract from balance
                     antalBilletterSolgt = antalBilletterSolgt + 1;
                     }else System.out.println("ikke nok penge");
                     break;
                 case 3:
                     if(balance > ultrapris){
                     ultrabillet();
-                    balance = balance - ultrapris;             // trækker fra balance
+                    balance = balance - ultrapris;             // subtract from balance
                     antalBilletterSolgt = antalBilletterSolgt + 1;
                     }else System.out.println("ikke nok penge");
                     break;
             }
-		
-
-		
+	
 	}
+        
+        //all tickets
         public void almbillet(){
                 System.out.println("##########B##T##########");
 		System.out.println("# Borgen Trafikselskab #");
@@ -132,12 +145,4 @@ public class Billetautomat {
 		System.out.println();
         }
         
-	/*public void setBilletpris(String montørkode, int nyPris) {
-		if (montørkode.equals("1234")) pris = nyPris;
-		else System.err.println("Kunne ikke sætte pris - forkert kode");
-	}
-
-	public int getSamletSalgsbeløb(String montørkode) {
-		if (montørkode.equals("1234")); return pris * antalBilletterSolgt;
-	}*/
 }

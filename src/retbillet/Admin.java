@@ -32,6 +32,8 @@ public class Admin {
             case 1:
                JOptionPane.showMessageDialog(null,"Velkommen " + a);
                x = true;  
+               name = a;
+               code = b;
                break;
             case 0:
                JOptionPane.showMessageDialog(null,"Bruger fundet, men forkert password");
