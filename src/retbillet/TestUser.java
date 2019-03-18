@@ -18,8 +18,7 @@ public class TestUser {
          int errors = 0;
         Users g = new Users();
         
-        //g.NewUser();
-        if(g.loginstatus()) errors++;
+        
         g.login();                    //incorrect login
         if(g.loginstatus()) errors++;
         g.login();                    //correct login

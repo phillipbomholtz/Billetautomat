@@ -72,28 +72,28 @@ public class Billetautomat {
 	public void udskrivBillet(int g) {
             switch(g){
                 case 0:
-                    if(balance > almpris){
+                    if(balance >= almpris){
                     almbillet();
                     balance = balance - almpris;             // subtract from balance
                     abs = abs + 1;
                     }else System.out.println("ikke nok penge");
                     break;
                 case 1:
-                    if(balance > godpris){
+                    if(balance >= godpris){
                     godbillet();
                     balance = balance - godpris;             // subtract from balance
                     abs = abs + 1;
                     }else System.out.println("ikke nok penge");
                     break;
                 case 2:
-                    if(balance > superpris){
+                    if(balance >= superpris){
                     superbillet();
                     balance = balance - superpris;             // subtract from balance
                     abs = abs + 1;
                     }else System.out.println("ikke nok penge");
                     break;
                 case 3:
-                    if(balance > ultrapris){
+                    if(balance >= ultrapris){
                     ultrabillet();
                     balance = balance - ultrapris;             // subtract from balance
                     abs = abs + 1;
