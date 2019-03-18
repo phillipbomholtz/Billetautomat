@@ -21,9 +21,9 @@ public class Testvinduer {
         f.Startmenu();
         f.Adminmenu("sven");
         f.gaestmenu();
-        f.indsaetpenge();
+       // f.indsaetpenge();
         f.usermenu("bob");
-        f.koebbillet(20);
+      //  f.koebbillet(20);
     }
     
 }
