@@ -70,7 +70,7 @@ public class Retbillet {
                 int u = menu.koebbillet(pris,gaestAuto.getBalance());           //load input
                 gaestAuto.udskrivBillet(u);                                     //print ticket
                 //log action
-                log.filewrite(x.now()+","+y.getHour()+":"+y.getMinute()+":"+y.getSecond()+","+"2,"+u+",\n");
+                log.filewrite(x.now()+","+y.getHour()+":"+y.getMinute()+":"+y.getSecond()+","+"2,"+(u+1)+",\n");
                 break;
             case 2:
                 EXIT = true;                                                    //exit

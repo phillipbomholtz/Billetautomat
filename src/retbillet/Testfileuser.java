@@ -40,17 +40,16 @@ public class Testfileuser {
         if(usertest2.fileSearchUser("Dorte", "1234") != 1) {
             if(usertest2.userBalance() != 100) errors++;
         }
+        //test logger
          Fileuser g = new Fileuser();
-         String b = g.LogDate("2019-03-17");
-         System.out.println("correct output: a log with all 2019-03-17 entrys");
+         String b = g.LogDate("2019-03-18");
+         System.out.println("correct output: a log with all 2019-03-18 entrys");
          System.out.println(b);
          
          String c = g.LogDate("10-10-11");
          System.out.println("correct output: Ingen Log for dato");
          System.out.println(c);
-         
-         String h = g.LogHandL(1);
-         System.out.println(c);
+        
          
         System.out.println("there where "+errors+" errors");
         
